@@ -1,31 +1,24 @@
+/* Updated App.css */
+
 body {
-  background-color: #004145;
+  background-color: #f4f4f9;
   margin: 0;
   padding: 0;
   font-family: 'Rubik', sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  min-height: 100vh;
-  overflow-x: hidden;
 }
 
 #options-container {
-  width: 100%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: fixed;
-  top: 10px;
+  top: 0;
+  width: 100%;
+  background-color: #f4f4f9;
   z-index: 100;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #options {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 10px; /* Adjust margin to reduce padding */
+  text-align: center;
 }
 
 #options button {
@@ -35,7 +28,7 @@ body {
   padding: 10px 20px;
   font-size: 15px;
   font-weight: bold;
-  margin: 5px;
+  margin: 0 10px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
@@ -52,10 +45,8 @@ body {
 }
 
 #filterContainer {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 10px; /* Adjust margin to reduce padding */
+  margin-top: 10px;
+  text-align: center;
 }
 
 #tagFilter {
@@ -68,7 +59,6 @@ body {
   outline: none;
   transition: all 0.3s ease;
   font-family: 'Rubik', sans-serif;
-  margin: 5px;
 }
 
 #tagFilter:hover {
@@ -91,7 +81,7 @@ body {
   color: #004246;
   cursor: pointer;
   font-family: 'Rubik', sans-serif;
-  margin: 5px;
+  margin-left: 10px;
   transition: background-color 0.3s;
 }
 
@@ -100,12 +90,14 @@ body {
 }
 
 #tableContainer {
-  margin-top: 120px; /* Ensure the table is below the fixed filters and buttons */
-  padding: 10px 10px 0; /* Adjust padding to reduce space */
+  margin-top: 100px; /* Ensure there is space for the fixed filter */
+  padding-left: 0px;
+  padding-right: 8px;
   background-color: white;
   border-radius: 10px;
-  max-height: 400px;
+  max-height: calc(100vh - 150px); /* Adjust height to fit within viewport */
   overflow: auto;
+  position: relative;
 }
 
 #tableContainer::-webkit-scrollbar {
@@ -160,11 +152,6 @@ td img {
   width: 130px;
   height: auto;
   cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-td img:hover {
-  transform: scale(1.1);
 }
 
 .modal {
@@ -219,25 +206,14 @@ td img:hover {
   white-space: nowrap;
 }
 
+.copy-content:hover .tooltip,
 .hover-container:hover .tooltip {
   display: block;
-}
-
-.copy-content:hover .tooltip {
-  display: block;
-}
-
-.copy-content .tooltip, .hover-container .tooltip {
-  position: absolute;
 }
 
 .copy-content {
   cursor: pointer;
   position: relative;
-}
-
-.copy-content:hover {
-  background-color: #f0f0f0;
 }
 
 .copy-content .tooltip {
@@ -279,42 +255,4 @@ td img:hover {
   background-color: white;
   color: #4CAF50;
   border-color: #4CAF50;
-}
-
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-  #options-container {
-    position: static;
-    margin-top: 10px;
-  }
-
-  #options {
-    flex-direction: column;
-    margin-bottom: 10px;
-  }
-
-  #options button {
-    width: 90%;
-    margin-bottom: 10px;
-  }
-
-  #filterContainer {
-    top: auto;
-    position: static;
-    margin-top: 10px;
-  }
-
-  #tableContainer {
-    max-height: none;
-    margin-top: 10px;
-  }
-
-  table, th, td {
-    font-size: 10px;
-    padding: 5px 10px;
-  }
-
-  .modal-content {
-    width: 80%;
-  }
 }

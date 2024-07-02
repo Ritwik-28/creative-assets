@@ -112,7 +112,11 @@ function App() {
 
     try {
       document.execCommand('copy');
-      alert('Content copied');
+      const tooltip = e.currentTarget.querySelector('.tooltip');
+      tooltip.innerText = 'Copied';
+      setTimeout(() => {
+        tooltip.innerText = 'Click to copy';
+      }, 2000);
     } catch (err) {
       console.error('Failed to copy', err);
     } finally {
